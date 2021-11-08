@@ -1,0 +1,49 @@
+package com.grupo3.vilayara.controllers;
+
+import java.util.List;
+
+import com.grupo3.vilayara.models.Product;
+import com.grupo3.vilayara.repositories.ProductRepository;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController()
+@RequestMapping(value = "/api")
+public class ProductController {
+    
+    @Autowired
+    ProductRepository productsRepository;
+
+    //salva um produto - create
+    @PostMapping("/products")
+    public void saveProduct(@RequestBody Product product){
+        System.out.println(product.toString());
+        productsRepository.save(product);
+    }
+
+    //lista todos produtos - read all
+    @GetMapping("/products")
+    public List<Product> findAllProducts(){
+        return productsRepository.findAll();
+    }
+
+    //atualiza produto - update
+    @PutMapping("/products")
+    public Product updateProduct(@RequestBody Product product){
+        return productsRepository.save(product);
+    } 
+
+    //deleta produto - delete
+    @DeleteMapping("/products")
+    public void deleteProduct(@RequestBody Product product){
+        productsRepository.delete(product);
+    }
+    
+}
