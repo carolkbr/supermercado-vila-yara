@@ -1,6 +1,7 @@
 package com.grupo3.vilayara.controllers;
 
 import java.util.List;
+import java.util.Optional;
 
 import com.grupo3.vilayara.models.Product;
 import com.grupo3.vilayara.repositories.ProductRepository;
@@ -8,6 +9,7 @@ import com.grupo3.vilayara.repositories.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -43,6 +45,12 @@ public class ProductController {
     @DeleteMapping("/products")
     public void deleteProduct(@RequestBody Product product){
         productsRepository.delete(product);
+    }
+
+    //procura produto por nome
+    @GetMapping("/products/{name}")
+    public Optional<Product> findProduct(@PathVariable(value = "name") String name){
+        return productsRepository.findByName(name);
     }
     
 }
