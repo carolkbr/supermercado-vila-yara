@@ -24,7 +24,6 @@ public class ProductController {
     //salva um produto - create
     @PostMapping("/products")
     public void saveProduct(@RequestBody Product product){
-        System.out.println(product.toString());
         productsRepository.save(product);
     }
 
