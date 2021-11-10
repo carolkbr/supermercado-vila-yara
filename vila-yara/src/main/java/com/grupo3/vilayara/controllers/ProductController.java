@@ -41,10 +41,10 @@ public class ProductController {
         return productsRepository.save(product);
     } 
 
-    //deleta produto - delete
-    @DeleteMapping("/products")
-    public void deleteProduct(@RequestBody Product product){
-        productsRepository.delete(product);
+    //deleta produto por id - delete
+    @DeleteMapping("/products/{id}")
+    public void deleteProduct(@PathVariable(value = "id") Long id){
+        productsRepository.deleteById(id);
     }
 
     //procura produto por nome
