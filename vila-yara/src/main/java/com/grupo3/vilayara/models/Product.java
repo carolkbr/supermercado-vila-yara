@@ -9,9 +9,17 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 @Entity
 @Table(name = "products", schema = "market")
-
+@Builder
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Product implements Serializable {
 
     private static final long serialVersionUID = 1l;
@@ -38,6 +46,7 @@ public class Product implements Serializable {
     @Column(name = "image_url")
     private String imageUrl;
 
+	/*
 	public long getId() {
 		return id;
 	}
@@ -93,5 +102,5 @@ public class Product implements Serializable {
 	public void setImageUrl(String imageUrl) {
 		this.imageUrl = imageUrl;
 	}
-    
+    */
 }
