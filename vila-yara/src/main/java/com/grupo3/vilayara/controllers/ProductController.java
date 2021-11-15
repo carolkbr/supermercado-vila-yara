@@ -89,21 +89,4 @@ public class ProductController {
             return ResponseEntity.internalServerError().build();
         }
     }
-
-
-    /*
-     * 
-     * 
-     * //deleta produto por id - delete
-     * 
-     * @DeleteMapping("/products/{id}") public void
-     * deleteProduct(@PathVariable(value = "id") Long id){
-     * productsRepository.deleteById(id); }
-     * 
-     * //procura produto por nome
-     * 
-     * @GetMapping("/products/{name}") public Optional<Product>
-     * findProduct(@PathVariable(value = "name") String name){ return
-     * productsRepository.findByName(name); }
-     */
-} // atualiza produto - update
+}
