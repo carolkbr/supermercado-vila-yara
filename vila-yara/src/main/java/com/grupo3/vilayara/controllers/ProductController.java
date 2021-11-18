@@ -32,8 +32,12 @@ public class ProductController {
     @PostMapping("/products")
     public ResponseEntity<Object> saveProduct(@RequestBody ProductDTO dto) {
         try {
-            Product product = Product.builder().name(dto.getName()).productsCategory(dto.getProductsCategory())
-                    .description(dto.getDescription()).quantity(dto.getQuantity()).unitaryPrice(dto.getUnitaryPrice())
+            Product product = Product.builder()
+                    .name(dto.getName())
+                    .productsCategory(dto.getProductsCategory())
+                    .description(dto.getDescription())
+                    .quantity(dto.getQuantity())
+                    .unitaryPrice(dto.getUnitaryPrice())
                     .imageUrl(dto.getImageUrl()).build();
             productService.saveProduct(product);
             return ResponseEntity.status(HttpStatus.CREATED).build();
